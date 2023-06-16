@@ -3,18 +3,11 @@ import Head from "next/head";
 import Image from "next/image";
 import QRCode from "qrcode";
 import { v4 as uuidv4 } from "uuid";
-import { createClient } from "@supabase/supabase-js";
 import FileSaver from "file-saver";
 import promptmaker from "promptmaker";
 
 const ogImage =
-  "https://github.com/replicate/quirky/assets/14149230/953943c8-3e0c-46ae-8a2d-d6702ce24692";
-const supabaseUrl = "https://ennwjiitmiqwdrgxkevm.supabase.co";
-const supabasePublicKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVubndqaWl0bWlxd2RyZ3hrZXZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM5Mjc3OTgsImV4cCI6MTk5OTUwMzc5OH0.zCHzwchIjcmKNmccb9D4OLVwrWrpLHMmf4a8W7UedFs";
-
-// Create a single supabase client for interacting with your database
-const supabase = createClient(supabaseUrl, supabasePublicKey);
+  "https://github.com/replicate/quirky/assets/14149230/236e6eef-ae01-430e-9332-994373a851b6";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
