@@ -11,14 +11,19 @@
   },
   "dependencies": {
     "@next/font": "13.0.7",
+    "@supabase/supabase-js": "^2.25.0",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.7",
     "next": "13.0.7",
+    "qrcode": "^1.5.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "replicate": "^0.6.0"
+    "react-qr-code": "^2.0.11",
+    "replicate": "^0.6.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.7"
