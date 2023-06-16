@@ -341,7 +341,7 @@ export default function Home() {
             )}
           </div>
         ) : (
-          <div>
+          <div class="">
             <div className="grid grid-cols-2 gap-4 mt-5">
               {[1, 2, 3, 4].map((i) => (
                 <a
