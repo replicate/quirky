@@ -142,7 +142,7 @@ export default function Home() {
   return (
     <div className="container max-w-2xl mx-auto p-5">
       <Head>
-        <title>Quirky — Make Really Cool QR Codes</title>{" "}
+        <title>Quirky — Make Really Cool QR Codes.</title>{" "}
         <meta
           property="og:image"
           content="https://github.com/replicate/quirky/assets/14149230/6c900306-3688-4c01-a877-70a7b4564ed6"
@@ -324,7 +324,7 @@ export default function Home() {
               <div>
                 <div className="grid grid-cols-2 gap-4 mt-5">
                   {[1, 2, 3, 4].map((i) => (
-                    <div class="relative">
+                    <div key={i} class="relative">
                       <img src={qr} alt="" />
                       <img
                         className="rounded-sm h-full w-full absolute top-0 left-0 opacity-50"
