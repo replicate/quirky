@@ -323,38 +323,16 @@ export default function Home() {
             ) : (
               <div>
                 <div className="grid grid-cols-2 gap-4 mt-5">
-                  <div class="relative">
-                    <img src={qr} alt="" />
-                    <img
-                      className="rounded-sm absolute top-0 left-0 opacity-50"
-                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                      alt=""
-                    />
-                  </div>
-                  <div class="relative">
-                    <img src={qr} alt="" />
-                    <img
-                      className="rounded-sm absolute top-0 left-0 opacity-50"
-                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                      alt=""
-                    />
-                  </div>
-                  <div class="relative">
-                    <img src={qr} alt="" />
-                    <img
-                      className="rounded-sm absolute top-0 left-0 opacity-50"
-                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                      alt=""
-                    />
-                  </div>
-                  <div class="relative">
-                    <img src={qr} alt="" />
-                    <img
-                      className="rounded-sm absolute top-0 left-0 opacity-50"
-                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                      alt=""
-                    />
-                  </div>
+                  {[1, 2, 3, 4].map((i) => (
+                    <div class="relative">
+                      <img src={qr} alt="" />
+                      <img
+                        className="rounded-sm h-full w-full absolute top-0 left-0 opacity-50"
+                        src="/loading.webp"
+                        alt=""
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 <p className="py-3 text-sm opacity-50">
@@ -366,18 +344,17 @@ export default function Home() {
         ) : (
           <div>
             <div className="grid grid-cols-2 gap-4 mt-5">
-              <div class="relative">
-                <img src="/seed/qr1.png" alt="" />
-              </div>
-              <div class="relative">
-                <img src="/seed/qr2.png" alt="" />
-              </div>
-              <div class="relative">
-                <img src="/seed/qr3.png" alt="" />
-              </div>
-              <div class="relative">
-                <img src="/seed/qr4.png" alt="" />
-              </div>
+              {[1, 2, 3, 4].map((i) => (
+                <a
+                  className="hover:brightness-50"
+                  href={`/seed/qr${i}.png`}
+                  target="_blank"
+                  download="download"
+                  rel="noopener noreferrer"
+                >
+                  <img key={i} src={`/seed/qr${i}.png`} alt="" />
+                </a>
+              ))}
             </div>
           </div>
         )}
