@@ -138,7 +138,7 @@ export default function Home() {
           property="twitter:image"
           content="https://github.com/replicate/quirky/assets/14149230/6c900306-3688-4c01-a877-70a7b4564ed6"
         />
-        <meta name="twitter:card" content="summary_large_image" />>
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
       <div className="text-center">
@@ -251,7 +251,7 @@ export default function Home() {
           </label>
           {prediction.output ? (
             <div>
-              <div className="grid grid-cols-4 gap-4  mt-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4  mt-4">
                 {prediction.output.map((output, i) => (
                   <div key={i} className="image-wrapper rounded-sm">
                     <button
@@ -271,7 +271,7 @@ export default function Home() {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-4 gap-4 mt-5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
                 <img
                   className="rounded-sm"
                   src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
