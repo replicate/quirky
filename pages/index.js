@@ -129,12 +129,21 @@ export default function Home() {
   return (
     <div className="container max-w-2xl mx-auto p-5">
       <Head>
-        <title>Replicate + Next.js</title>
+        <title>Quirky — Make Really Cool QR Codes</title>
       </Head>
 
-      <h1 className="py-6 text-center font-bold text-2xl">🔳 Qrky</h1>
+      <div className="text-center">
+        <h1 className="pt-6 text-center font-bold text-2xl">🔳 Quirky</h1>
+        <h5 className="pt-3 text-xs text-gray-500">
+          Make really cool QR Codes. <br />
+          <a href="https://github.com/replicate/quirky">
+            A free and open source project
+          </a>{" "}
+          by the Replicate Hackers.
+        </h5>
+      </div>
 
-      <form className="w-full" onSubmit={handleSubmit}>
+      <form className="w-full mt-6" onSubmit={handleSubmit}>
         <label
           for="url"
           className="block text-sm font-medium leading-6 text-gray-900"
