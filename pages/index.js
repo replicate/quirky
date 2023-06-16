@@ -101,39 +101,16 @@ export default function Home() {
         url,
         {
           type: "image/png",
-          quality: 1.0,
-          margin: 1.2,
+          quality: 10.0,
+          margin: 2.0,
           version: 2,
-          width: 512,
+          width: 1024,
         },
         async function (err, dataUrl) {
           setQR(dataUrl);
 
           console.log(dataUrl);
 
-          //   const blob = dataURItoBlob(dataUrl);
-
-          //   const imageName = `QR-${uuidv4()}.png`;
-
-          //   // upload controlnet image
-          //   const { data, error } = await supabase.storage
-          //     .from("images")
-          //     .upload(`public/${imageName}`, blob);
-
-          //   if (data) {
-          //     console.log(
-          //       `successfully uploaded ${JSON.stringify(data)}, ${imageName}`
-          //     );
-          //   } else {
-          //     console.log(
-          //       `failed uploaded ${JSON.stringify(error)}, ${imageName}`
-          //     );
-          //     window.alert("Failed to upload image");
-          //     return;
-          //   }
-
-          //   const newImageURL = `${supabaseUrl}/storage/v1/object/public/images/public/${imageName}`;
-          //   console.log("uploaded URL: ", newImageURL);
           resolve(dataUrl);
         }
       );
@@ -209,6 +186,7 @@ export default function Home() {
               id="prompt"
               name="prompt"
               type="text"
+              placeholder="Describe your QR code"
               className="block p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
             />
           </div>
