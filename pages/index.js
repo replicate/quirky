@@ -256,8 +256,8 @@ export default function Home() {
               </div>
 
               <p className="py-3 text-sm opacity-50">
-                Try scanning with your phone camera! If it doesn't work, try
-                again, sometimes it takes a few tries.
+                Try scanning with your phone camera! If it doesn&apos;t work,
+                try again — sometimes it takes a few tries.
               </p>
             </div>
           ) : (
