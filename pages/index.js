@@ -7,6 +7,8 @@ import { createClient } from "@supabase/supabase-js";
 import FileSaver from "file-saver";
 import promptmaker from "promptmaker";
 
+const ogImage =
+  "https://github.com/replicate/quirky/assets/14149230/953943c8-3e0c-46ae-8a2d-d6702ce24692";
 const supabaseUrl = "https://ennwjiitmiqwdrgxkevm.supabase.co";
 const supabasePublicKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVubndqaWl0bWlxd2RyZ3hrZXZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM5Mjc3OTgsImV4cCI6MTk5OTUwMzc5OH0.zCHzwchIjcmKNmccb9D4OLVwrWrpLHMmf4a8W7UedFs";
@@ -142,22 +144,16 @@ export default function Home() {
   return (
     <div className="container max-w-2xl mx-auto p-5">
       <Head>
-        <title>Quirky — Make Really Cool QR Codes.</title>{" "}
-        <meta
-          property="og:image"
-          content="https://github.com/replicate/quirky/assets/14149230/6c900306-3688-4c01-a877-70a7b4564ed6"
-        />
-        <meta
-          property="twitter:image"
-          content="https://github.com/replicate/quirky/assets/14149230/6c900306-3688-4c01-a877-70a7b4564ed6"
-        />
+        <title>Quirky — Make Really Cool QR Codes with AI.</title>{" "}
+        <meta property="og:image" content={ogImage} />
+        <meta property="twitter:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
       <div className="text-center">
         <h1 className="pt-6 text-center font-bold text-2xl">🔳 Quirky</h1>
         <h5 className="pt-3 text-xs text-gray-500">
-          Make really cool QR Codes. <br /> A free and{" "}
+          Make really cool QR Codes with AI. <br /> A free and{" "}
           <a className="underline" href="https://github.com/replicate/quirky">
             open source
           </a>{" "}
