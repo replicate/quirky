@@ -4,6 +4,8 @@ import Image from "next/image";
 import QRCode from "qrcode";
 import { v4 as uuidv4 } from "uuid";
 import { createClient } from "@supabase/supabase-js";
+import FileSaver from "file-saver";
+import promptmaker from "promptmaker";
 
 const supabaseUrl = "https://ennwjiitmiqwdrgxkevm.supabase.co";
 const supabasePublicKey =
@@ -19,9 +21,11 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [qr, setQR] = useState(null);
   const [url, setUrl] = useState("replicate.com");
-  const [prompt, setPrompt] = useState(
-    "whippet, flemish baroque, el yunque rainforest, 35mm film, quadtone color grading, chromakey"
-  );
+  const [prompt, setPrompt] = useState(promptmaker());
+
+  const download = async (url, id) => {
+    FileSaver.saveAs(url, `QR-${id}.png`);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -89,7 +93,7 @@ export default function Home() {
   const createQR = async (url) => {
     QRCode.toDataURL(
       url,
-      { type: "image/png", quality: 1.0, margin: 1.0, width: 500 },
+      { type: "image/png", quality: 1.0, margin: 1.2, width: 512 },
       async function (err, dataUrl) {
         setQR(dataUrl);
 
@@ -128,7 +132,7 @@ export default function Home() {
         <title>Replicate + Next.js</title>
       </Head>
 
-      <h1 className="py-6 text-center font-bold text-2xl">Qrky</h1>
+      <h1 className="py-6 text-center font-bold text-2xl">🔳 Qrky</h1>
 
       <form className="w-full" onSubmit={handleSubmit}>
         <label
@@ -137,7 +141,7 @@ export default function Home() {
         >
           URL
         </label>
-        <div className="mt-2">
+        <div className="mt-2 w-64">
           <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-blue-600 sm:max-w-md">
             <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
               https://
@@ -154,7 +158,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mt-4">
           <label
             for="prompt"
             className="block text-sm font-medium leading-6 text-gray-900"
@@ -173,30 +177,111 @@ export default function Home() {
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="mt-6 rounded-full bg-white px-3.5 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        >
-          Go!
-        </button>
+        <div class="mt-6">
+          <button
+            type="button"
+            className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 mr-3 "
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+              />
+            </svg>
+            Prompt
+          </button>
+          <button
+            type="submit"
+            className="ml-3 inline-flex items-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-4 h-4 mr-3"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+            Create
+          </button>
+        </div>
       </form>
 
       {error && <div>{error}</div>}
 
       {prediction && (
-        <>
-          {prediction.output && (
-            <div className="grid grid-cols-4 gap-4">
-              {prediction.output.map((output) => (
-                <div className="image-wrapper mt-5">
-                  <img src={output} alt="" />
-                </div>
-              ))}
+        <div className="mt-12">
+          <label
+            for="url"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            QR Codes
+          </label>
+          {prediction.output ? (
+            <div>
+              <div className="grid grid-cols-4 gap-4  mt-4">
+                {prediction.output.map((output) => (
+                  <div className="image-wrapper rounded-sm">
+                    <button
+                      className="hover:brightness-50"
+                      onClick={() => download(output, prediction.id)}
+                    >
+                      <img src={output} alt="" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <p className="py-3 text-sm opacity-50">
+                Try scanning with your phone camera! If it doesn't work, try
+                again, sometimes it takes a few tries.
+              </p>
+            </div>
+          ) : (
+            <div>
+              <div className="grid grid-cols-4 gap-4 mt-5">
+                <img
+                  className="rounded-sm"
+                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                  alt=""
+                />
+                <img
+                  className="rounded-sm"
+                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                  alt=""
+                />
+                <img
+                  className="rounded-sm"
+                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                  alt=""
+                />
+                <img
+                  className="rounded-sm"
+                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                  alt=""
+                />
+              </div>
+
+              <p className="py-3 text-sm opacity-50">
+                status: {prediction.status}
+              </p>
             </div>
           )}
-
-          <p className="py-3 text-sm opacity-50">status: {prediction.status}</p>
-        </>
+        </div>
       )}
     </div>
   );
