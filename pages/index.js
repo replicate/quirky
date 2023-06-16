@@ -32,7 +32,7 @@ export default function Home() {
 
     const uploadedUrl = await createQR(e.target.url.value);
 
-    console.log(`uploadedUrl is `, qr);
+    console.log(`uploadedUrl is `, uploadedUrl);
     const response = await fetch("/api/predictions", {
       method: "POST",
       headers: {
@@ -287,13 +287,17 @@ export default function Home() {
           for="url"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
-          QR Codes <span className="italic text-gray-700">— Scan Me!</span>
+          QR Codes
         </label>
 
         {prediction ? (
           <div>
             {prediction.output ? (
               <div>
+                <p className="py-3 text-sm opacity-50">
+                  Try scanning with your phone camera! If it doesn&apos;t work,
+                  try again — sometimes it takes a few tries.
+                </p>
                 <div className="grid grid-cols-2 gap-4  mt-4">
                   {prediction.output.map((output, i) => (
                     <div key={i} className="image-wrapper rounded-sm">
@@ -310,11 +314,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-
-                <p className="py-3 text-sm opacity-50">
-                  Try scanning with your phone camera! If it doesn&apos;t work,
-                  try again — sometimes it takes a few tries.
-                </p>
               </div>
             ) : (
               <div>
