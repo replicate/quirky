@@ -57,11 +57,15 @@ export default function Home() {
       prediction = await response.json();
       if (response.status !== 200) {
         setError(prediction.detail);
+        setLoading(false);
         return;
       }
       console.log({ prediction });
       setPrediction(prediction);
-      setLoading(false);
+
+      if (prediction.status === "succeeded") {
+        setLoading(false);
+      }
     }
   };
 
