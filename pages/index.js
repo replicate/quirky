@@ -251,7 +251,7 @@ export default function Home() {
           </label>
           {prediction.output ? (
             <div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4  mt-4">
+              <div className="grid grid-cols-2 gap-4  mt-4">
                 {prediction.output.map((output, i) => (
                   <div key={i} className="image-wrapper rounded-sm">
                     <button
@@ -271,7 +271,7 @@ export default function Home() {
             </div>
           ) : (
             <div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
+              <div className="grid grid-cols-2 gap-4 mt-5">
                 <div class="relative">
                   <img src={qr} alt="" />
                   <img
