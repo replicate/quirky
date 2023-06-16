@@ -243,8 +243,8 @@ export default function Home() {
           {prediction.output ? (
             <div>
               <div className="grid grid-cols-4 gap-4  mt-4">
-                {prediction.output.map((output) => (
-                  <div className="image-wrapper rounded-sm">
+                {prediction.output.map((output, i) => (
+                  <div key={i} className="image-wrapper rounded-sm">
                     <button
                       className="hover:brightness-50"
                       onClick={() => download(output, prediction.id)}
