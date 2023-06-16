@@ -346,13 +346,14 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4 mt-5">
               {[1, 2, 3, 4].map((i) => (
                 <a
+                  key={i}
                   className="hover:brightness-50"
                   href={`/seed/qr${i}.png`}
                   target="_blank"
                   download="download"
                   rel="noopener noreferrer"
                 >
-                  <img key={i} src={`/seed/qr${i}.png`} alt="" />
+                  <img src={`/seed/qr${i}.png`} alt="" />
                 </a>
               ))}
             </div>
