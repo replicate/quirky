@@ -272,26 +272,38 @@ export default function Home() {
           ) : (
             <div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-5">
-                <img
-                  className="rounded-sm"
-                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                  alt=""
-                />
-                <img
-                  className="rounded-sm"
-                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                  alt=""
-                />
-                <img
-                  className="rounded-sm"
-                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                  alt=""
-                />
-                <img
-                  className="rounded-sm"
-                  src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                  alt=""
-                />
+                <div class="relative">
+                  <img src={qr} alt="" />
+                  <img
+                    className="rounded-sm absolute top-0 left-0 opacity-50"
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                    alt=""
+                  />
+                </div>
+                <div class="relative">
+                  <img src={qr} alt="" />
+                  <img
+                    className="rounded-sm absolute top-0 left-0 opacity-50"
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                    alt=""
+                  />
+                </div>
+                <div class="relative">
+                  <img src={qr} alt="" />
+                  <img
+                    className="rounded-sm absolute top-0 left-0 opacity-50"
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                    alt=""
+                  />
+                </div>
+                <div class="relative">
+                  <img src={qr} alt="" />
+                  <img
+                    className="rounded-sm absolute top-0 left-0 opacity-50"
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                    alt=""
+                  />
+                </div>
               </div>
 
               <p className="py-3 text-sm opacity-50">
