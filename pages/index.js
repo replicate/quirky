@@ -40,7 +40,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         prompt: e.target.prompt.value,
-        qr_image: qr,
+        qr_image: qr, // use QR state for now...
       }),
     });
     let prediction = await response.json();
@@ -93,7 +93,7 @@ export default function Home() {
   const createQR = async (url) => {
     QRCode.toDataURL(
       url,
-      { type: "image/png", quality: 1.0, margin: 1.2, width: 512 },
+      { type: "image/png", quality: 1.0, margin: 1.2, version: 2, width: 512 },
       async function (err, dataUrl) {
         setQR(dataUrl);
 
@@ -249,78 +249,102 @@ export default function Home() {
 
       {error && <div>{error}</div>}
 
-      {prediction && (
-        <div className="mt-12">
-          <label
-            for="url"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            QR Codes
-          </label>
-          {prediction.output ? (
-            <div>
-              <div className="grid grid-cols-2 gap-4  mt-4">
-                {prediction.output.map((output, i) => (
-                  <div key={i} className="image-wrapper rounded-sm">
-                    <button
-                      className="hover:brightness-50"
-                      onClick={() => download(output, prediction.id)}
-                    >
-                      <img src={output} alt="" />
-                    </button>
+      <div className="mt-12">
+        <label
+          for="url"
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          QR Codes
+        </label>
+
+        {prediction ? (
+          <div>
+            {prediction.output ? (
+              <div>
+                <div className="grid grid-cols-2 gap-4  mt-4">
+                  {prediction.output.map((output, i) => (
+                    <div key={i} className="image-wrapper rounded-sm">
+                      <a
+                        className="hover:brightness-50"
+                        href={output}
+                        target="_blank"
+                        download="download"
+                        rel="noopener noreferrer"
+                        //   onClick={() => download(output, prediction.id)}
+                      >
+                        <img src={output} alt="" />
+                      </a>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="py-3 text-sm opacity-50">
+                  Try scanning with your phone camera! If it doesn&apos;t work,
+                  try again — sometimes it takes a few tries.
+                </p>
+              </div>
+            ) : (
+              <div>
+                <div className="grid grid-cols-2 gap-4 mt-5">
+                  <div class="relative">
+                    <img src={qr} alt="" />
+                    <img
+                      className="rounded-sm absolute top-0 left-0 opacity-50"
+                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                      alt=""
+                    />
                   </div>
-                ))}
-              </div>
+                  <div class="relative">
+                    <img src={qr} alt="" />
+                    <img
+                      className="rounded-sm absolute top-0 left-0 opacity-50"
+                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                      alt=""
+                    />
+                  </div>
+                  <div class="relative">
+                    <img src={qr} alt="" />
+                    <img
+                      className="rounded-sm absolute top-0 left-0 opacity-50"
+                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                      alt=""
+                    />
+                  </div>
+                  <div class="relative">
+                    <img src={qr} alt="" />
+                    <img
+                      className="rounded-sm absolute top-0 left-0 opacity-50"
+                      src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
+                      alt=""
+                    />
+                  </div>
+                </div>
 
-              <p className="py-3 text-sm opacity-50">
-                Try scanning with your phone camera! If it doesn&apos;t work,
-                try again — sometimes it takes a few tries.
-              </p>
-            </div>
-          ) : (
-            <div>
-              <div className="grid grid-cols-2 gap-4 mt-5">
-                <div class="relative">
-                  <img src={qr} alt="" />
-                  <img
-                    className="rounded-sm absolute top-0 left-0 opacity-50"
-                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                    alt=""
-                  />
-                </div>
-                <div class="relative">
-                  <img src={qr} alt="" />
-                  <img
-                    className="rounded-sm absolute top-0 left-0 opacity-50"
-                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                    alt=""
-                  />
-                </div>
-                <div class="relative">
-                  <img src={qr} alt="" />
-                  <img
-                    className="rounded-sm absolute top-0 left-0 opacity-50"
-                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                    alt=""
-                  />
-                </div>
-                <div class="relative">
-                  <img src={qr} alt="" />
-                  <img
-                    className="rounded-sm absolute top-0 left-0 opacity-50"
-                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmRkOTU0ZmVmZjA2OGQzN2Y5YjQ0YjQ2YmU2MzE4OTgxNjVmNTM0ZCZjdD1n/SrpYgjOxiKvBxVS9s2/giphy.gif"
-                    alt=""
-                  />
-                </div>
+                <p className="py-3 text-sm opacity-50">
+                  status: {prediction.status}
+                </p>
               </div>
-
-              <p className="py-3 text-sm opacity-50">
-                status: {prediction.status}
-              </p>
+            )}
+          </div>
+        ) : (
+          <div>
+            <div className="grid grid-cols-2 gap-4 mt-5">
+              <div class="relative">
+                <img src="/seed/qr1.png" alt="" />
+              </div>
+              <div class="relative">
+                <img src="/seed/qr2.png" alt="" />
+              </div>
+              <div class="relative">
+                <img src="/seed/qr3.png" alt="" />
+              </div>
+              <div class="relative">
+                <img src="/seed/qr4.png" alt="" />
+              </div>
             </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
