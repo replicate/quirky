@@ -114,8 +114,11 @@ export default function Home() {
   return (
     <div className="container max-w-2xl mx-auto p-5">
       <Head>
-        <title>Quirky — Make Really Cool QR Codes with AI.</title>{" "}
-        <meta property="og:image" content={ogImage} />
+        <title>Quirky</title> <meta property="og:image" content={ogImage} />
+        <meta
+          property="og:description"
+          content="Make really cool QR codes with AI."
+        />
         <meta property="twitter:image" content={ogImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <link
