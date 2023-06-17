@@ -3,11 +3,12 @@ import Head from "next/head";
 import Image from "next/image";
 import QRCode from "qrcode";
 import { v4 as uuidv4 } from "uuid";
+import { createClient } from "@supabase/supabase-js";
 import FileSaver from "file-saver";
 import promptmaker from "promptmaker";
 
 const ogImage =
-  "https://github.com/replicate/quirky/assets/14149230/236e6eef-ae01-430e-9332-994373a851b6";
+  "https://github.com/replicate/quirky/assets/14149230/953943c8-3e0c-46ae-8a2d-d6702ce24692";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
