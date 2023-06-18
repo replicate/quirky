@@ -130,7 +130,7 @@ export default function Home() {
       <div className="text-center">
         <h1 className="pt-6 text-center font-bold text-2xl">🔳 Quirky</h1>
         <h5 className="pt-3 text-xs text-gray-500">
-          Make really cool QR Codes with AI. <br /> A free and{" "}
+          A free and{" "}
           <a className="underline" href="https://github.com/replicate/quirky">
             open source
           </a>{" "}
@@ -143,6 +143,28 @@ export default function Home() {
           </a>{" "}
           Hackers.
         </h5>
+      </div>
+
+      <div className="text-center mt-4">
+        <a href="https://replicate.com/docs?utm_source=project&utm_campaign=quirky">
+          <div className="inline-flex items-center bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg mx-auto text-white text-sm">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-5 h-5 mr-3"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+              />
+            </svg>
+            Want to make your own AI powered apps? Check out Replicate &rarr;
+          </div>
+        </a>
       </div>
 
       <form className="w-full mt-6" onSubmit={handleSubmit}>
