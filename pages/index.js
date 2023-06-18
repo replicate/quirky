@@ -134,14 +134,7 @@ export default function Home() {
           <a className="underline" href="https://github.com/replicate/quirky">
             open source
           </a>{" "}
-          project by the{" "}
-          <a
-            className="underline"
-            href="https://replicate?utm_source=project&utm_campaign=quirky"
-          >
-            Replicate
-          </a>{" "}
-          Hackers.
+          project.
         </h5>
       </div>
 
