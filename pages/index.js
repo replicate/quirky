@@ -130,17 +130,17 @@ export default function Home() {
       <div className="text-center">
         <h1 className="pt-6 text-center font-bold text-2xl">🔳 Quirky</h1>
         <h5 className="pt-3 text-xs text-gray-500">
-          A free and{" "}
+          The{" "}
           <a className="underline" href="https://github.com/replicate/quirky">
             open source
           </a>{" "}
-          project.
+          tool for making really cool QR codes with AI.
         </h5>
       </div>
 
       <div className="text-center mt-4">
         <a href="https://replicate.com/docs?utm_source=project&utm_campaign=quirky">
-          <div className="inline-flex items-center bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg mx-auto text-white text-sm">
+          <div className="inline-flex items-center bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg mx-auto text-white text-xs sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
