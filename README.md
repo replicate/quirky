@@ -9,7 +9,7 @@ This app is powered by:
 
 🚀 [Replicate](https://replicate.com), a platform for running machine learning models in the cloud.
 
-🖼️ [Multi-ControlNet](https://replicate.com/anotherjesse/multi-controlnet), an open-source machine learning model that layers controlnets to do cool things with your QR code.
+🖼️ [Multi-ControlNet](https://replicate.com/anotherjesse/multi-control), an open-source machine learning model that layers controlnets to do cool things with your QR code.
 
 🔳 [react-qr-code](https://www.npmjs.com/package/react-qr-code) for generating QR codes.
 
