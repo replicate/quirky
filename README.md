@@ -2,7 +2,6 @@
 
 Make really cool QR codes with AI. Try it out at [quirky.replicate.dev](https://quirky.replicate.dev).
 
-You can use this as a quick jumping-off point to build a web app using Replicate's API, or you can recreate this codebase from scratch by following the guide at [replicate.com/docs/get-started/nextjs](https://replicate.com/docs/get-started/nextjs)
 
 ## How it works
 
