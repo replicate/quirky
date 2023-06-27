@@ -34,3 +34,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser. That's it!
+
+Run with docker:
+1)Build image 
+```console
+docker build -t quirky:test .
+```
+2)Run container
+```console
+docker run -it -e REPLICATE_API_TOKEN=YOUAPIKEY -p 80:3000 quirky:test
+```
+Open [http://localhost](http://localhost) with your browser. That's it!
