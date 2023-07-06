@@ -1,16 +1,19 @@
-## Getting started with Next.js and Replicate
+## 🔳 Quirky
 
-This is a [Next.js](https://nextjs.org/) template project that's preconfigured to work with Replicate's API.
+Make really cool QR codes with AI. Try it out at [quirky.replicate.dev](https://quirky.replicate.dev).
 
-You can use this as a quick jumping-off point to build a web app using Replicate's API, or you can recreate this codebase from scratch by following the guide at [replicate.com/docs/get-started/nextjs](https://replicate.com/docs/get-started/nextjs)
 
-## Noteworthy files
+## How it works
 
-- [pages/index.js](pages/index.js) - The React frontend that renders the home page in the browser
-- [pages/api/predictions/index.js](pages/api/predictions/index.js) - The backend API endpoint that calls Replicate's API to create a prediction
-- [pages/api/predictions/[id].js](pages/api/predictions/[id].js) - The backend API endpoint that calls Replicate's API to get the prediction result
+This app is powered by:
 
-## Usage
+🚀 [Replicate](https://replicate.com), a platform for running machine learning models in the cloud.
+
+🖼️ [Multi-ControlNet](https://replicate.com/anotherjesse/multi-control), an open-source machine learning model that layers controlnets to do cool things with your QR code.
+
+🔳 [react-qr-code](https://www.npmjs.com/package/react-qr-code) for generating QR codes.
+
+## Development
 
 Install dependencies:
 
@@ -30,8 +33,4 @@ Run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser.
-
-For detailed instructions on how to create and use this template, see [replicate.com/docs/get-started/nextjs](https://replicate.com/docs/get-started/nextjs)
-
-<img src="https://user-images.githubusercontent.com/2289/208017930-a39ca4d5-2410-4049-bce0-20718480c73b.png" alt="app screenshot">
+Open [http://localhost:3000](http://localhost:3000) with your browser. That's it!
