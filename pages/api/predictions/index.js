@@ -14,27 +14,19 @@ export default async function handler(req, res) {
   console.log(req.body);
 
   const prediction = await replicate.predictions.create({
-    // See https://replicate.com/anotherjesse/multi-control/versions
-    version: "e785fdfe4b636f62e95835cad6ddd53505687ef4c10571d10fb6b2d0185d46aa",
+    // See https://replicate.com/nateraw/qrcode-stable-diffusion
+    version: "9cdabf8f8a991351960c7ce2105de2909514b40bd27ac202dba57935b07d29d4",
 
     // This is the text prompt that will be submitted by a form on the frontend
     input: {
       prompt: req.body.prompt,
-      qr_image: req.body.qr_image,
-      num_samples: 4,
-      low_threshold: 100,
-      scheduler: "K_EULER",
-      high_threshold: 200,
-      guidance_scale: 9,
-      image_resolution: 512,
-      qr_conditioning_scale: 1.47,
-      scribble_conditioning_scale: 1,
-      normal_conditioning_scale: 1,
-      hed_conditioning_scale: 1,
-      canny_conditioning_scale: 1,
-      depth_conditioning_scale: 1,
-      hough_conditioning_scale: 1,
-      seg_conditioning_scale: 1,
+      qr_code_content: req.body.url,
+      batch_size: 4,
+      strength: 0.9,
+      guidance_scale: 7.5,
+      negative_prompt: "ugly, disfigured, low quality, blurry, nsfw",
+      num_inference_steps: 40,
+      controlnet_conditioning_scale: 1.5,
     },
   });
 
