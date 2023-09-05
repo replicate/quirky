@@ -25,6 +25,7 @@ export default function Home() {
     setLoading(true);
 
     const uploadedUrl = await createQR(e.target.url.value);
+    console.log(uploadedUrl, "uploadedUrl");
 
     console.log(`uploadedUrl is `, uploadedUrl);
     const response = await fetch("/api/predictions", {
@@ -262,7 +263,7 @@ export default function Home() {
 
         {prediction ? (
           <div>
-            {prediction.output && prediction.output.length != 0 ? (
+            {prediction.output ? (
               <div>
                 <p className="py-3 text-sm opacity-50">
                   Try scanning with your phone camera! If it doesn&apos;t work,
